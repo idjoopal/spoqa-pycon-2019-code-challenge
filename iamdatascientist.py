@@ -19,12 +19,6 @@ data = pd.read_csv('./dataset.csv', header=None)
 # In[3]:
 
 
-data.head()
-
-
-# In[4]:
-
-
 flatrows = []
 for y, col in data.iterrows():
     for x, row in col.iteritems():
@@ -36,18 +30,15 @@ for y, col in data.iterrows():
                 flatrows.append((x, -y, data[x][y]))
 
 
-# In[5]:
+# In[4]:
 
 
 pdData = pd.DataFrame(flatrows, columns=('x', 'y', 'value'))
-pdData.head()
 
 
-# In[10]:
+# In[5]:
 
 
 plt.figure(figsize=(16, 6))
 plt.scatter(pdData.x,pdData.y, c=pdData.value, s=50, marker='s')
-
-#plt.show()
 
